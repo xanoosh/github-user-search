@@ -1,0 +1,198 @@
+*:not(ul, ol) {
+  margin: 0;
+  padding: 0;
+}
+
+$brand-color: #646cff;
+$font-color: rgba(255, 255, 255, 0.8);
+$border-color: rgba(255, 255, 255, 0.2);
+$background-color: #242424;
+$danger-color: rgb(197, 48, 48);
+
+$border-style-main: 0.05rem solid $border-color;
+
+%link {
+  font-style: italic;
+  color: $brand-color;
+  text-decoration: none;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  background-color: $background-color;
+  color: $font-color;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  h1,
+  h2 {
+    margin-bottom: 1rem;
+  }
+  ul {
+    li {
+      list-style-type: square;
+      &::marker {
+        color: $brand-color;
+      }
+    }
+  }
+}
+
+//nav
+.nav-menu {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: $border-style-main;
+  &__description {
+    color: $font-color;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-right: 2rem;
+    border-right: $border-style-main;
+    @media (max-width: 700px) {
+      padding-top: 1.5rem;
+      border: none;
+      width: 100%;
+    }
+  }
+  &__element {
+    margin-bottom: -0.05rem;
+    padding: 1.5rem 1rem;
+    border-bottom: 0.1rem solid transparent;
+    font-weight: 600;
+    color: $font-color;
+    text-decoration: inherit;
+    &:hover {
+      color: $brand-color;
+    }
+    &--active {
+      color: $brand-color;
+      border-color: $brand-color;
+    }
+    @media (max-width: 700px) {
+      padding: 0.6rem 0.1rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+//section
+.section-container {
+  padding: 2rem;
+  &__description {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  &__link {
+    @extend %link;
+  }
+}
+
+//form
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 40rem;
+  .form__group {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+      color: $font-color;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    &__input {
+      all: unset;
+      border: 1px solid $border-color;
+      padding: 0.5rem 1rem;
+      &:focus {
+        border-color: $brand-color;
+      }
+    }
+    &__errors {
+      height: 1.3rem;
+      span {
+        font-size: 0.9rem;
+        color: $danger-color;
+      }
+    }
+  }
+  .form__submit {
+    all: unset;
+    padding: 0.5rem 1rem;
+    background-color: $brand-color;
+    color: $font-color;
+    text-align: center;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: lighten($brand-color, 5%);
+    }
+  }
+}
+
+//github project cards
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 2rem;
+  &__project {
+    width: 15rem;
+    padding: 1rem 1rem;
+    border-left: $border-style-main;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &__title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    &:nth-of-type(2n) {
+      .projects-container__project__title {
+        color: $brand-color;
+      }
+    }
+    &__link {
+      @extend %link;
+      word-break: break-all;
+    }
+    &__commits-container {
+      &__list__element {
+        font-size: 0.8rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+//loader
+.loader-container {
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//footer
+.footer-section {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  border-top: $border-style-main;
+  &__text {
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+}
