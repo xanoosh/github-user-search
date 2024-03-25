@@ -1,6 +1,7 @@
 import CommitList from './CommitList';
+import PropTypes from 'prop-types';
 
-export default function SingleGithubProject({ projectData, loginValue }) {
+function SingleGithubProject({ projectData, loginValue }) {
   return (
     <div className="projects-container__project">
       <p className="projects-container__project__title">{projectData.name}</p>
@@ -16,3 +17,10 @@ export default function SingleGithubProject({ projectData, loginValue }) {
     </div>
   );
 }
+
+SingleGithubProject.propTypes = {
+  projectData: PropTypes.objectOf(PropTypes.string),
+  loginValue: PropTypes.string,
+};
+
+export default SingleGithubProject;

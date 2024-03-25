@@ -1,6 +1,7 @@
 import { Oval } from 'react-loader-spinner';
+import PropTypes from 'prop-types';
 
-export default function Loading({ variant = 'lg', centered }) {
+function Loading({ variant = 'lg' }) {
   return (
     <Oval
       visible={true}
@@ -14,3 +15,8 @@ export default function Loading({ variant = 'lg', centered }) {
     />
   );
 }
+Loading.propTypes = {
+  variant: PropTypes.oneOf(['sm', 'lg']),
+};
+
+export default Loading;

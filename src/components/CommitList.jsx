@@ -1,7 +1,8 @@
 import { useCommits } from '../hooks/useCommits';
+import PropTypes from 'prop-types';
 
 import Loading from './Loading';
-export default function CommitList({ projectName = '', loginValue }) {
+function CommitList({ projectName, loginValue }) {
   const { data, isLoading } = useCommits({
     login: loginValue,
     repo: projectName,
@@ -26,3 +27,10 @@ export default function CommitList({ projectName = '', loginValue }) {
     <p>no commits available</p>
   );
 }
+
+CommitList.propTypes = {
+  projectName: PropTypes.string,
+  loginValue: PropTypes.string,
+};
+
+export default CommitList;
