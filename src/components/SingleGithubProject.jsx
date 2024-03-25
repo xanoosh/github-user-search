@@ -19,7 +19,10 @@ function SingleGithubProject({ projectData, loginValue }) {
 }
 
 SingleGithubProject.propTypes = {
-  projectData: PropTypes.objectOf(PropTypes.string),
+  projectData: PropTypes.shape({
+    name: PropTypes.string,
+    html_url: PropTypes.string,
+  }),
   loginValue: PropTypes.string,
 };
 

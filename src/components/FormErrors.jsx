@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 function FormErrors({ errors }) {
-  console.log('errors:', errors);
   return (
     <div className="form__group__errors">
       {Object.keys(errors).length
